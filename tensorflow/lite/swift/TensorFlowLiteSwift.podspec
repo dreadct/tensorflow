@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'TensorFlowLiteSwift'
-  s.version          = '2.10.0'
+  s.version          = '2.11.0-fork'
   s.authors          = 'Google Inc.'
   s.license          = { :type => 'Apache' }
   s.homepage         = 'https://github.com/tensorflow/tensorflow'
@@ -33,7 +33,7 @@ Pod::Spec.new do |s|
   s.default_subspec = 'Core'
 
   s.subspec 'Core' do |core|
-    core.dependency 'TensorFlowLiteC', "#{s.version}"
+    core.dependency 'TensorFlowLiteC', "2.11.0"
     core.source_files = swift_dir + 'Sources/*.swift'
     core.exclude_files = swift_dir + 'Sources/{CoreML,Metal}Delegate.swift'
 
@@ -50,13 +50,13 @@ Pod::Spec.new do |s|
 
   s.subspec 'CoreML' do |coreml|
     coreml.source_files = swift_dir + 'Sources/CoreMLDelegate.swift'
-    coreml.dependency 'TensorFlowLiteC/CoreML', "#{s.version}"
+    coreml.dependency 'TensorFlowLiteC/CoreML', "2.11.0"
     coreml.dependency 'TensorFlowLiteSwift/Core', "#{s.version}"
   end
 
   s.subspec 'Metal' do |metal|
     metal.source_files = swift_dir + 'Sources/MetalDelegate.swift'
-    metal.dependency 'TensorFlowLiteC/Metal', "#{s.version}"
+    metal.dependency 'TensorFlowLiteC/Metal', "2.11.0"
     metal.dependency 'TensorFlowLiteSwift/Core', "#{s.version}"
 
     metal.test_spec 'Tests' do |ts|
